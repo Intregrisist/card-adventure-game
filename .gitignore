@@ -1,0 +1,13 @@
+# IDE and editor specific files #
+#################################
+/nbproject
+.idea
+
+# Bower Components #
+####################
+/src/bower_components
+/node_modules
+
+# Cache #
+#########
+/.sass-cache

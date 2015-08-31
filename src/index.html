@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>My HTML File</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="dist/css/game-drink.css">
+
+        <!-- Angular JS - TODO: Concatenate -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+
+        <!-- Application JS - TODO: Concatenate and Uglify -->
+        <script src="app/app.js"></script>
+        <script src="app/dashboard/dashboard.js"></script>
+        <!-- Application JS Resources -->
+        <script src="common/resources/games.js"></script>
+
+        <!-- Angular JS Bootstrap 4 Directives -->
+        <script src="common/directives/bootstrap/bootstrap.js"></script>
+    </head>
+    <body ng-controller="AppCtrl">
+        <!--<div ng-include="'app/header.tpl.html'"></div>-->
+        <div ng-view class="container-fluid"></div>
+    </body>
+</html>

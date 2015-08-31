@@ -1,0 +1,35 @@
+{
+  "name": "game-drink",
+  "version": "0.0.0",
+  "authors": [
+    "Daniel Flores <dflores009@gmail.com>"
+  ],
+  "description": "Social drinking game.",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "mobile",
+    "game",
+    "drinking",
+    "social",
+    "network"
+  ],
+  "license": "MIT",
+  "homepage": "www.conbriodesigns.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-mocks": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "bootstrap": "~4.x.x",
+    "jquery": "~2.1.4"
+  }
+}
