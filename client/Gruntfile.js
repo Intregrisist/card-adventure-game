@@ -1,10 +1,12 @@
 module.exports = function(grunt) {
 
+
     // Load Grunt modules
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-html2js');
 
     // Register tasks
@@ -26,6 +28,7 @@ module.exports = function(grunt) {
         ' * Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n */\n',
         src: {
             sass: ['src/scss/stylesheet.scss'],
+            sassWatch: ['src/scss/**/*.scss'],
             js: ['src/app/**/*.js'],
             jsTpl: ['<%= distdir %>/templates/**/*.js']
         },
@@ -55,7 +58,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: {
-                    '<%= distdir %>/css/<%= pkg.name %>.min.css': ['<%= src.sass %>']
+                    'src/<%= distdir %>/css/<%= pkg.name %>.min.css': ['<%= src.sass %>']
                 },
                 options: {
                     style: 'compressed',
@@ -64,11 +67,22 @@ module.exports = function(grunt) {
             },
             test: {
                 files: {
-                    '<%= distdir %>/css/<%= pkg.name %>.css': ['<%= src.sass %>']
+                    'src/<%= distdir %>/css/<%= pkg.name %>.css': ['<%= src.sass %>']
                 },
                 options: {
                     style: 'nested',
                     sourcemap: 'auto'
+                }
+            }
+        },
+        watch: {
+            sass: {
+                files: ['<%= src.sassWatch %>'],
+                tasks: ['sass'],
+                options: {
+                    interrupt: true,
+                    livereload: true
+                    //reload: true
                 }
             }
         }
