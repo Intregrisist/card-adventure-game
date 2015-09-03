@@ -1,0 +1,13 @@
+<nav class="navbar navbar-fixed-top navbar-light bg-faded" ng-controller="HeaderCtrl">
+    <div class="container">
+        <a class="navbar-brand" href="#">Card Adventure</a>
+        <ul class="nav navbar-nav pull-right">
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+</div>
