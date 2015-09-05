@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>My HTML File</title>
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="dist/css/game-drink.css">
+        <link rel="stylesheet" href="dist/css/<%= grunt.config.get('pkg.name') %>.css">
 
         <!-- Angular JS - TODO: Concatenate -->
         <script src="bower_components/angular/angular.js"></script>
@@ -28,6 +28,6 @@
         <div ng-view></div>
 
         <!-- Grunt Live Reload -->
-        <script src="//localhost:35729/livereload.js"></script>
+        <!--<script src="//localhost:35729/livereload.js"></script>-->
     </body>
 </html>
