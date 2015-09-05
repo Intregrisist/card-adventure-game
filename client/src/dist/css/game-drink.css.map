@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": ";;;AAAA,IAAK;EACH,gBAAgB,EAAE,OAAO;EACzB,WAAW,EAAE,IAAI;;ACEnB,aAAc;EACZ,gBAAgB,ECCI,IAAI;EDAxB,YAAY,ECCQ,OAAU",
-"sources": ["../../scss/_scaffolding.scss","../../scss/_card.scss","../../scss/_variables.scss"],
-"names": [],
-"file": "game-drink.css"
-}

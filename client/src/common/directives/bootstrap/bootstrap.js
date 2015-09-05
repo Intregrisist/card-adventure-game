@@ -3,9 +3,9 @@
  *
  * License: MIT
  */
-angular.module("ui.bootstrap-4", ["ui.bootstrap.alert"]);
+angular.module("ui.bootstrap-4", ["ui.bootstrap-4.alert"]);
 
-angular.module('ui.bootstrap.alert', [])
+angular.module('ui.bootstrap-4.alert', [])
     .controller('AlertController', ['$scope', '$attrs', function ($scope, $attrs) {
         $scope.closeable = !!$attrs.close;
         this.close = $scope.close;

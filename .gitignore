@@ -3,10 +3,15 @@
 /nbproject
 .idea
 
+# Dist #
+########
+/client/dist
+
 # Bower Components #
 ####################
 /client/src/bower_components
 /client/node_modules
+
 
 # Cache #
 #########
