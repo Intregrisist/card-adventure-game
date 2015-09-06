@@ -1,7 +1,7 @@
 angular.module('dashboard', ['resources.games'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/dashboard', {
-            templateUrl: 'app/dashboard/dashboard.tpl.html',
+            templateUrl: 'dashboard/dashboard.tpl.html',
             controller: 'DashboardCtrl',
             resolve: {
                 games: ['Games', function (Games) {

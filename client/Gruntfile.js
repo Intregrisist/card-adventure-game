@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
     // Register tasks
     grunt.registerTask('default', ['dist', 'watch']);
-    grunt.registerTask('dist', ['clean','html2js','concat','dist-css','copy:assets']);
+    grunt.registerTask('dist', ['clean','html2js','concat','dist-css','copy:assets','copy:bootstrap']);
 
     // Print a timestamp (useful for when watching)
     grunt.registerTask('timestamp', function() {
@@ -34,7 +34,10 @@ module.exports = function(grunt) {
                 comb: 'src/scss/.csscomb.json'
             },
             sassWatch: ['src/scss/**/*.scss'],
-            js: ['src/app/**/*.js'],
+            js: [
+                'src/app/**/*.js',
+                'src/common/**/*.js'
+            ],
             jsTpl: ['<%= distdir %>/templates/**/*.js'],
             tpl: {
                 app: ['src/app/**/*.tpl.html'],
@@ -60,21 +63,13 @@ module.exports = function(grunt) {
             angular: {
                 src: [
                     'src/bower_components/angular/angular.js',
+                    'src/bower_components/angular-http-auth/src/http-auth-interceptor.js',
+                    'src/bower_components/angular-mocks/angular-mocks.js',
                     'src/bower_components/angular-route/angular-route.js',
-                    'src/bower_components/angular/angular-mocks/angular-mocks.js'
+                    'src/bower_components/angular-webstorage/angular-webstorage.js'
                 ],
                 dest: '<%= distdir %>/js/angular.js'
             }
-            /*
-            bootstrap: {
-                src:['vendor/angular-ui/bootstrap/*.js'],
-                dest: '<%= distdir %>/bootstrap.js'
-            },
-            jquery: {
-                src:['vendor/jquery/*.js'],
-                dest: '<%= distdir %>/jquery.js'
-            }
-            */
         },
         copy: {
             assets: {
@@ -85,17 +80,15 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'src/assets/' }
                 ]
-
-                /*
+            },
+            bootstrap: {
                 files: [
                     {
-                        dest: '<%= distdir %>',
+                        dest: '<%= distdir %>/vendor/bootstrap',
                         src : '**',
                         expand: true,
-                        cwd: 'src/'
-                    }
+                        cwd: 'src/bower_components/bootstrap/dist' }
                 ]
-                */
             }
         },
         csscomb: {

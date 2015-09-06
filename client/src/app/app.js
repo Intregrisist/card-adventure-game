@@ -7,8 +7,15 @@ angular.module('app', [
     'http-auth-interceptor',
     'security',
 
+    // Controllers
     'dashboard',
-    'ui.bootstrap-4'
+
+    // Directives
+    'ui.bootstrap-4',
+
+    // Templates
+    'templates.app',
+    'templates.common'
 ]);
 
 /**

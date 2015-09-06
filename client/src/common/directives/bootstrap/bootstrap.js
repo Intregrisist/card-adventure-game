@@ -16,7 +16,7 @@ angular.module('ui.bootstrap-4.alert', [])
             controller: 'AlertController',
             controllerAs: 'alert',
             templateUrl: function(element, attrs) {
-                return attrs.templateUrl || 'common/directives/bootstrap/templates/alert/alert.tpl.html' || 'template/alert/alert.html';
+                return attrs.templateUrl || 'directives/bootstrap/templates/alert/alert.tpl.html' || 'template/alert/alert.html';
             },
             transclude: true,
             replace: true,

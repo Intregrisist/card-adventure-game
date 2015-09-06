@@ -2,29 +2,21 @@
 <html lang="en" ng-app="app">
     <head>
         <meta charset="utf-8">
-        <title>My HTML File</title>
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="dist/css/<%= grunt.config.get('pkg.name') %>.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <!-- Angular JS - TODO: Concatenate -->
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-        <script src="bower_components/angular-webstorage/angular-webstorage.js"></script>
-        <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
+        <title>Card Adventure</title>
 
-        <!-- Application JS - TODO: Concatenate and Uglify -->
-        <script src="app/app.js"></script>
-        <script src="app/dashboard/dashboard.js"></script>
-        <!-- Application JS Resources -->
-        <script src="common/resources/games.js"></script>
-        <script src="common/security/index.js"></script>
+        <!-- CSS -->
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/<%= grunt.config.get('pkg.name') %>.css">
 
-        <!-- Angular JS Bootstrap 4 Directives -->
-        <script src="common/directives/bootstrap/bootstrap.js"></script>
+        <!-- JS -->
+        <script src="js/angular.js"></script>
+        <script src="js/<%= grunt.config.get('pkg.name') %>.js"></script>
     </head>
     <body ng-controller="AppCtrl">
-        <div ng-include="'app/header.tpl.html'"></div>
+        <div ng-include="'header.tpl.html'"></div>
         <div ng-view></div>
 
         <!-- Grunt Live Reload -->
