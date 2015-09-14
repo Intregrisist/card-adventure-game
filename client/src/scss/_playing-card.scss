@@ -1,3 +1,72 @@
+// Playing Cards
+
 .playing-card {
+  display: block;
+  height: 0;
+  padding-bottom: 150.50%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+  font-weight: 600;
+
+  @extend .z-depth-1;
+  @extend .hoverable;
+}
+
+// Playing Card - Main
+//
+// Main character card style
+
+.playing-card-main {
+  background-color: #FFF;
+}
+
+// Health
+//
+// The health indicator for health
+
+.playing-card-health {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  
+  > span {
+    @include attribute-group(#FFF, #FF0000, 1rem);
+  }
+}
+
+.playing-card-attributes {
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  right: 5%;
+
+  &.playing-card-attributes-justified {
+    display: table;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 5px;
+    margin-left: -5px;
+    margin-right: -5px;
+
+    .playing-card-attribute {
+      display: table-cell;
+
+      width: 1%;
+      white-space: nowrap;
+    }
+  }
+}
+
+.playing-card-attribute {
+  > span {
+    @include attribute-group(#FFF, #BADA55, 1.5rem, 50%);
+  }
+}
+
+
+
+// TODO: Toggle hiding/minimizing
+.row-playing-cards {
 
 }

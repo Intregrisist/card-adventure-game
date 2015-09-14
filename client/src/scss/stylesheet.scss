@@ -8,14 +8,18 @@
 // Load Bootstrap 4 Mixins
 @import "../bower_components/bootstrap/scss/_mixins";
 
-// Variables
-@import "_variables";
+// Core variables and mixins
+@import "variables";
+@import "mixins";
 
 // Core
-@import "_scaffolding";
-@import "_type";
+@import "scaffolding";
+@import "type";
+@import "shadows";
 
 // Components
-@import "_card";
-@import "_playing-card";
+@import "card";
+@import "playing-card";
 
+// Fonts
+@import "card-adventure/card-adventure";

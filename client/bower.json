@@ -30,8 +30,8 @@
     "angular-http-auth": "~1.2.2",
     "angular-mocks": "~1.4.4",
     "angular-route": "~1.4.4",
-    "angular-webstorage": "~0.14.0",
     "bootstrap": "~4.x.x",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "ngstorage": "~0.3.9"
   }
 }

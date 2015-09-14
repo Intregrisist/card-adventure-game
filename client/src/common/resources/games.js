@@ -1,5 +1,5 @@
-angular.module('resources.games', []);
-angular.module('resources.games').factory('Games', ['$timeout', function($timeout) {
+angular.module('resources.games',[])
+    .factory('Games', ['$timeout', function($timeout) {
     // Dummy current user data, this will be done at login or possibly some session ID
     // if we don't want to have registered users.
     var currentUser = {
