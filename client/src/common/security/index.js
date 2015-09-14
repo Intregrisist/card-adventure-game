@@ -2,8 +2,8 @@ angular.module('security', [
     'security.service'
 ]);
 
-angular.module('security.service', [])
-    .factory('security', ['$http', '$q', '$location', function($http, $q, $location) {
+angular.module('security.service', ['ngStorage'])
+    .factory('security', ['$http', '$q', '$location', '$localStorage', '$sessionStorage', function($http, $q, $location, $localStorage, $sessionStorage) {
 
         var service = {
             /**

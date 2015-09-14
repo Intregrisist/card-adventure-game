@@ -14,5 +14,5 @@ angular.module('dashboard', ['resources.games'])
     }])
 
     .controller('DashboardCtrl', ['$scope', function($scope) {
-
+        console.log('Controller: DashboardCtrl');
     }]);

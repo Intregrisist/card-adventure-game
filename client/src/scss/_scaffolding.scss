@@ -1,4 +1,16 @@
 body {
-  background-color: #201B3A;
+  background-color: #441c3a;
   padding-top: 80px;
+
+
+  background-image: url("/assets/imgs/geometry.png");
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("/assets/imgs/geometry_@2X.png");
+    background-size: 256px 256px;
+  }
 }

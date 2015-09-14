@@ -10,13 +10,20 @@ module.exports = function(grunt) {
     });
 
     // Register tasks
-    grunt.registerTask('default', ['dist', 'watch']);
-    grunt.registerTask('dist', ['clean','html2js','concat','dist-css','copy:assets','copy:bootstrap']);
+    grunt.registerTask('default', ['build', 'watch']);
+    grunt.registerTask('build', ['clean','html2js','concat','dist-css','copy:assets','copy:bootstrap','copy:config']);
 
     // Print a timestamp (useful for when watching)
     grunt.registerTask('timestamp', function() {
         grunt.log.subhead(Date());
     });
+
+    // Karma Configuration/Settings
+    var karmaConfig = function(configFile, customOptions) {
+        var options = { configFile: configFile, keepalive: true };
+        var travisOptions = process.env.TRAVIS && { browsers: ['Firefox'], reporters: 'dots' };
+        return grunt.util._.extend(options, customOptions, travisOptions);
+    };
 
     // Project configuration.
     grunt.initConfig({
@@ -66,7 +73,7 @@ module.exports = function(grunt) {
                     'src/bower_components/angular-http-auth/src/http-auth-interceptor.js',
                     'src/bower_components/angular-mocks/angular-mocks.js',
                     'src/bower_components/angular-route/angular-route.js',
-                    'src/bower_components/angular-webstorage/angular-webstorage.js'
+                    'src/bower_components/ngstorage/ngStorage.js'
                 ],
                 dest: '<%= distdir %>/js/angular.js'
             }
@@ -88,6 +95,17 @@ module.exports = function(grunt) {
                         src : '**',
                         expand: true,
                         cwd: 'src/bower_components/bootstrap/dist' }
+                ]
+            },
+            config: {
+                files: [
+                    {
+                        dest: '<%= distdir %>',
+                        src : [
+                            '.htaccess'
+                        ],
+                        expand: true,
+                        cwd: 'src' }
                 ]
             }
         },
@@ -139,6 +157,14 @@ module.exports = function(grunt) {
                 module: 'templates.common'
             }
         },
+        karma: {
+            unit: {
+                options: karmaConfig('test/config/unit.js')
+            },
+            watch: {
+                options: karmaConfig('test/config/unit.js', {singleRun: false, autoWatch: true})
+            }
+        },
         postcss: {
             options: {
                 map: true, // inline sourcemaps
@@ -174,6 +200,20 @@ module.exports = function(grunt) {
             sass: {
                 files: ['<%= src.sassWatch %>'],
                 tasks: ['sass'],
+                options: {
+                    interrupt: true,
+                    livereload: true
+                    //reload: true
+                }
+            },
+            build: {
+                files: [
+                    '<%= src.js %>',
+                    '<%= src.sassWatch %>',
+                    '<%= src.tpl.app %>',
+                    '<%= src.tpl.common %>'
+                ],
+                tasks: ['build', 'timestamp'],
                 options: {
                     interrupt: true,
                     livereload: true
